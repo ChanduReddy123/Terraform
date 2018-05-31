@@ -9,12 +9,12 @@
   - name: copying to home path
     copy:
      src: /var/lib/jenkins/workspace/terraform_sample/SpringMVCSecurityXML/target/SpringMVCSecurityXML.war 
-     dest: /home/ubuntu
+     dest: /home/ec2-user
 
 
   - name: create backup
     file:
-     path: /home/ubuntu/backup
+     path: /home/ec2-user/backup
      state: directory
 
   - name: run script to copy current version to previous and latest to current
