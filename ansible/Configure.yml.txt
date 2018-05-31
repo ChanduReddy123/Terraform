@@ -1,0 +1,31 @@
+- hosts: CreateDirSer
+  remote_user: root
+  tasks:
+  - name: install tomcat8
+    apt:
+     name: tomcat8
+     state: present
+
+  - name: copying to home path
+    copy:
+     src: /var/lib/tomcat8/webapps/SpringMVCSecurityXML.war 
+     dest: /home/ubuntu
+
+
+  - name: create backup
+    file:
+     path: /home/ubuntu/backup
+     state: directory
+
+  - name: run script to copy current version to previous and latest to current
+    script: ./bup.sh
+
+  - name: deleting from home path
+    file:
+     path: /home/ubuntus/SpringMVCSecurityXML.war 
+     state: absent
+
+  - name: deploy java app
+    copy:
+      src: /var/lib/tomcat8/webapps/SpringMVCSecurityXML.war 
+      dest: /var/lib/tomcat8/webapps
