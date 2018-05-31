@@ -74,7 +74,7 @@ resource "aws_instance" "TF_instance"
 {
  ami="ami-92df37ed"
  instance_type="t2.micro"
- key_name="Splunk"
+ key_name="Fresher's"
  tags{
   Name="TFinstance"
  }
