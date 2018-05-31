@@ -18,11 +18,11 @@
      state: directory
 
   - name: run script to copy current version to previous and latest to current
-    script: ./bup.sh
+    script: ./backup.sh
 
   - name: deleting from home path
     file:
-     path: /home/ubuntus/SpringMVCSecurityXML.war 
+     path: /home/ec2-user/SpringMVCSecurityXML.war 
      state: absent
 
   - name: deploy java app
