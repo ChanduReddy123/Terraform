@@ -74,7 +74,7 @@ resource "aws_instance" "TF_instance"
 {
  ami="ami-48a45937"
  instance_type="t2.micro"
- key_name="Fresher's"
+ key_name="Ansible"
  tags{
   Name="TFinstance"
  }
