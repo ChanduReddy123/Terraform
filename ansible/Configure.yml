@@ -2,7 +2,7 @@
   remote_user: root
   tasks:
   - name: install tomcat8
-    apt:
+    yum:
      name: tomcat8
      state: present
 
