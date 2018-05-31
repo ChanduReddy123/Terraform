@@ -1,6 +1,6 @@
 provider "aws"
 {
- region = "us-east-2"
+ region = "ap-northeast-1"
 }
 
 resource "aws_internet_gateway" "ggkIGW" {
