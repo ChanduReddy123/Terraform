@@ -72,7 +72,7 @@ resource "aws_security_group" "all_traffic"{
 
 resource "aws_instance" "TF_instance"
 {
- ami="ami-2a0f324f"
+ ami="ami-92df37ed"
  instance_type="t2.micro"
  key_name="Splunk"
  tags{
