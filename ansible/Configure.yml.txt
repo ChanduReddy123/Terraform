@@ -1,4 +1,4 @@
-- hosts: CreateDirSer
+- hosts: WebServer
   remote_user: root
   tasks:
   - name: install tomcat8
@@ -8,7 +8,7 @@
 
   - name: copying to home path
     copy:
-     src: /var/lib/tomcat8/webapps/SpringMVCSecurityXML.war 
+     src: /var/lib/jenkins/workspace/terraform_sample/SpringMVCSecurityXML/target/SpringMVCSecurityXML.war 
      dest: /home/ubuntu
 
 
@@ -27,5 +27,5 @@
 
   - name: deploy java app
     copy:
-      src: /var/lib/tomcat8/webapps/SpringMVCSecurityXML.war 
+      src: /var/lib/jenkins/workspace/terraform_sample/SpringMVCSecurityXML/target/SpringMVCSecurityXML.war
       dest: /var/lib/tomcat8/webapps
