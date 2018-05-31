@@ -72,7 +72,7 @@ resource "aws_security_group" "all_traffic"{
 
 resource "aws_instance" "TF_instance"
 {
- ami="ami-92df37ed"
+ ami="ami-48a45937"
  instance_type="t2.micro"
  key_name="Fresher's"
  tags{
@@ -84,9 +84,8 @@ resource "aws_instance" "TF_instance"
 
 user_data = <<-EOF
      #!/bin/bash
-     sudo yum update
-     sudo yum install -y tomcat
-     mkdir /home/ec2-user/hello
+     sudo apt update
+     sudo apt install -y python-minimal
     EOF
 
 }
