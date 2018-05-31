@@ -2,19 +2,19 @@
   remote_user: root
   tasks:
   - name: install tomcat8
-    yum:
+    apt:
      name: tomcat8
      state: present
 
   - name: copying to home path
     copy:
      src: /var/lib/jenkins/workspace/terraform_sample/SpringMVCSecurityXML/target/SpringMVCSecurityXML.war 
-     dest: /home/ec2-user
+     dest: /home/ubuntu
 
 
   - name: create backup
     file:
-     path: /home/ec2-user/backup
+     path: /home/ubuntu/backup
      state: directory
 
   - name: run script to copy current version to previous and latest to current
@@ -22,7 +22,7 @@
 
   - name: deleting from home path
     file:
-     path: /home/ec2-user/SpringMVCSecurityXML.war 
+     path: /home/ubuntu/SpringMVCSecurityXML.war 
      state: absent
 
   - name: deploy java app
