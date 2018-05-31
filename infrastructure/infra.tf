@@ -85,7 +85,7 @@ resource "aws_instance" "TF_instance"
 user_data = <<-EOF
      #!/bin/bash
      sudo apt -y update
-     sudo apt install -y python-minimal
+     sudo apt -y install  python-minimal
     EOF
 
 }
