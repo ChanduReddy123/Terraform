@@ -7,7 +7,7 @@ resource "aws_internet_gateway" "ggkIGW" {
   vpc_id = "${aws_vpc.ggk.id}"
 
   tags {
-	Name = "ggkIGW"
+        Name = "ggkIGW"
   }
 }
 
@@ -21,11 +21,11 @@ resource "aws_vpc" "ggk"
 }
 
 resource "aws_subnet" "ggksubnet1" {
-  vpc_id 	= "${aws_vpc.ggk.id}"
+  vpc_id        = "${aws_vpc.ggk.id}"
   cidr_block = "192.168.10.0/25"
 
   tags {
-	Name = "ggksubnet1"
+        Name = "ggksubnet1"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "ggksubnet1" {
 
 resource "aws_route_table" "ggk_route_table"{
  vpc_id = "${aws_vpc.ggk.id}"
- 
+
  route{
   gateway_id = "${aws_internet_gateway.ggkIGW.id}"
   cidr_block = "0.0.0.0/0"
@@ -81,18 +81,13 @@ resource "aws_instance" "TF_instance"
  subnet_id = "${aws_subnet.ggksubnet1.id}"
  associate_public_ip_address = true
  security_groups = ["${aws_security_group.all_traffic.id}"]
-
-user_data = <<-EOF
-     #!/bin/bash
-     sudo apt -y update
-     sudo apt -y install  python-minimal
-    EOF
-
+ user_data = <<-EOF
+              #!/bin/bash
+              sudo apt update -y
+              sudo apt install -y python-minimal
+              EOF
 }
 
 output "ip"{
 value = "${aws_instance.TF_instance.public_ip}"
 }
-
-
-
